@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
 import {server} from "../../server";
+import { toast } from "react-toastify";
 
 const Signup = () => {
     const [email, setEmail] = useState("");
@@ -12,6 +13,8 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
+    const navigate=useNavigate();
+
 
     const handleFileInputChange=(e)=>{
         const file=e.target.files[0];
@@ -32,12 +35,21 @@ const Signup = () => {
       newForm.append("email",email);
       newForm.append("password",password);
 
-      axios.post(`${server}/user/create-user`, newForm, config)
+      axios
+      .post(`${server}/user/create-user`, newForm, config)
       .then((res) => {
-        console.log(res);
+        // if(res.data.success===true)
+        // {
+        //   navigate("/");
+        // }
+        toast.success(res.data.message);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setAvatar();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        toast.error(error.response.data.message);
       });
       // console.log("ffff");
     };
