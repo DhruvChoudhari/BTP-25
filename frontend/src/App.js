@@ -6,6 +6,10 @@ import {
   SignupPage,
   ActivationPage,
   HomePage,
+  ProductsPage,
+  BestSellingPage,
+  EventsPage,
+  FaqPage,
 } from "./routes/Routes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,12 +17,18 @@ import "react-toastify/dist/ReactToastify.css";
 // import { server } from "./server";
 import Store from "./redux/store";
 import { loadUser } from "./redux/actions/user";
-
+import { useSelector } from "react-redux";
 const App = () => {
+  
+  const {loading } = useSelector((state) => state.user);
+
   useEffect(() => {
     Store.dispatch(loadUser());
   }, []);
   return (
+    <>
+     {loading ? null : (
+        <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -28,6 +38,10 @@ const App = () => {
           path="/activation/:activation_token"
           element={<ActivationPage />}
         />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/best-selling" element={<BestSellingPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/faq" element={<FaqPage />} />
       </Routes>
       <ToastContainer
         position="bottom-center"
@@ -42,6 +56,9 @@ const App = () => {
         theme="dark"
       />
     </BrowserRouter>
+    </>
+      )}
+    </>
   );
 };
 export default App;
