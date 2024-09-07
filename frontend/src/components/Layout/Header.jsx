@@ -16,6 +16,8 @@ import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
+import Cart from "../cart/Cart.jsx";
+import Wishlist from "../Wishlist/Wishlist.jsx";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -23,6 +25,8 @@ const Header = ({ activeHeading }) => {
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const [openWishlist, setOpenWishlist] = useState(false);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -141,7 +145,9 @@ const Header = ({ activeHeading }) => {
           </div>
 
           <div className="flex">
-            <div className={`${styles.noramlFlex}`}>
+            <div className={`${styles.noramlFlex}`}
+            onClick={() => setOpenWishlist(true)}
+            >
               <div className="relative cursor-pointer mr-[15px]">
                 <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
                 <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
@@ -151,7 +157,8 @@ const Header = ({ activeHeading }) => {
             </div>
 
             <div className={`${styles.noramlFlex}`}>
-              <div className="relative cursor-pointer mr-[15px]">
+              <div className="relative cursor-pointer mr-[15px]"
+              onClick={() => setOpenCart(true)}>
                 <AiOutlineShoppingCart
                   size={30}
                   color="rgb(255 255 255 / 83%)"
@@ -179,6 +186,18 @@ const Header = ({ activeHeading }) => {
                 )}
               </div>
             </div>
+            {/* Avatar end */}
+
+            {/* card  popup start */}
+            {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
+            {/* card popup end */}
+
+            {/* Wish list pop uo Start */}
+            {openWishlist ? (
+              <Wishlist setOpenWishlist={setOpenWishlist} />
+            ) : null}
+            {/* Wish list pop uo end */}
+
           </div>
         </div>
       </div>
