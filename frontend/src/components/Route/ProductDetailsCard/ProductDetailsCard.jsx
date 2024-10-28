@@ -7,13 +7,16 @@ import {
 } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { backend_url } from "../../../server";
 import styles from "../../../styles/styles";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify"
 
 const ProductDetailsCard = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [select, setSelect] = useState(false);
-
+  const dispatch = useDispatch();
 
   const handleMessageSubmit = () => {
 
@@ -44,7 +47,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                 <img src={data.image_Url[0].url} alt="" />
 
                 <div className="flex">
-                  {/* <Link to={`/shop/preview/${data.shop._id}`} className="flex"> */}
+                  <Link to={`/shop/preview/${data.shop._id}`} className="flex">
                     
                     <img
                       src={data.shop.shop_avatar.url}
@@ -53,8 +56,9 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     />
 
                     <div>
-                      <h3 className={`${styles.shop_name}`}>
+                      <h3 className={`${styles.shop_name}`} className="underline hover:underline-offset-4">
                         {data.shop.name}
+                      
                       </h3>
                       <h5 className="pb-3 text-[15px]">
                         ({data.shop.ratings}) Ratings
@@ -63,7 +67,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
 
 
-                  {/* </Link> */}
+                  </Link>
 
                 </div>
 

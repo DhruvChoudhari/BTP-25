@@ -87,6 +87,8 @@ export const deleteProduct = (id) => async (dispatch) => {
 //       type: "getAllProductsSuccess",
 //       payload: data.products,
 //     });
+//     console.log("In Product actions :")
+//     console.log(data.products)
 //   } catch (error) {
 //     dispatch({
 //       type: "getAllProductsFailed",

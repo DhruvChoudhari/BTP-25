@@ -144,22 +144,22 @@ const ProductDetails = ({ data }) => {
                 </div>
 
                 <div className="flex items-center pt-8">
-                  {/* <Link to={`/shop/preview/${data?.shop._id}`}> */}
+                  <Link to={`/shop/preview/${data?.shop._id}`}>
                   <img
                     src={data.shop.shop_avatar.url}
                     alt=""
                     className="w-[50px] h-[50px] rounded-full mr-2"
                   />
-                  {/* </Link> */}
+                  </Link>
 
                   <div className="pr-8">
-                    {/* <Link to={`/shop/preview/${data?.shop._id}`}> */}
+                    <Link to={`/shop/preview/${data?.shop._id}`}>
                     <h3
                       className={`${styles.shop_name} pb-1 pt-1 cursor-pointer`}
                     >
                       {data.shop.name}
                     </h3>
-                    {/* </Link> */}
+                    </Link>
                     <h5 className="pb-3 text-[15px]">
                       {" "}
                       ({data.shop.ratings}/5) Ratingss
@@ -263,7 +263,7 @@ const ProductDetailsInfo = ({ data }) => {
           <div className="w-full block 800px:flex p-5 ">
             <div className="w-full 800px:w-[50%]">
               <div className="flex items-center">
-                {/* <Link to={`/shop/preview/${data.shop._id}`}> */}
+                <Link to={`/shop/preview/${data.shop._id}`}>
                   <div className="flex items-center">
                     <img
                       src={data.shop.shop_avatar.url}
@@ -279,7 +279,7 @@ const ProductDetailsInfo = ({ data }) => {
                       </h5>
                     </div>
                   </div>
-                {/* </Link> */}
+                </Link>
               </div>
 
               <p className="pt-2">
