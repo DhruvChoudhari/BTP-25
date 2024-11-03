@@ -36,8 +36,8 @@ const ShopProfileData = ({ isOwner }) => {
         setIsLoading(false);
     })
     // setData(dispatch(getAllProductsShop(id)));
-    console.log("In ShopProfileData : Products");
-    console.log(server);
+    // console.log("In ShopProfileData : Products");
+    // console.log(server);
     // console.log(allProducts.name);
 
   }, []);

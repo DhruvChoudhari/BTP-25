@@ -28,10 +28,10 @@ const ShopInfo = ({ isOwner }) => {
         console.log(error);
         setIsLoading(false);
     })
-    console.log("In shop.info");
+    // console.log("In shop.info");
     // console.log(server);
     // console.log(id);
-    console.log(data);
+    // console.log(data);
     // console.log(data.name);
 }, [])
 
