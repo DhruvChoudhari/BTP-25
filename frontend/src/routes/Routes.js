@@ -7,6 +7,7 @@ import BestSellingPage from "../pages/BestSellingPage.jsx";
 import EventsPage from "../pages/EventsPage.jsx";
 import FaqPage from "../pages/FaqPage.jsx";
 import ProductsDetailsPage from "../pages/ProductsDetailsPage.jsx";
+import ProductDetailsPage from "../pages/ProductDetailsPage.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import CheckoutPage from "../pages/CheckoutPage.jsx";
 import ShopCreatePage from "../pages/ShopCreate.jsx";
@@ -23,6 +24,7 @@ export {
   FaqPage,
   CheckoutPage,
   ProductsDetailsPage,
+  ProductDetailsPage,
   ProfilePage,
   ShopCreatePage,
   SellerActivationPage,

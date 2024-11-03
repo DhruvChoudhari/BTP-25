@@ -59,6 +59,26 @@ router.get(
   })
 );
 
+// get product by id
+router.get(
+  "/get-product/:id",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const productData = await Product.findById(req.params.id);
+      // const products = await Product.find({ shopId: req.params.id });
+
+      res.status(201).json({
+        success: true,
+        productData,
+      });
+      // console.log("In Product Controller : ");
+      // console.log(products);
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
 // delete product of a shop
 router.delete(
   "/delete-shop-product/:id",

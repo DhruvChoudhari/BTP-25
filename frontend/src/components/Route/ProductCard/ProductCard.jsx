@@ -33,8 +33,8 @@ const ProductCard = ({ data }) => {
         //     setClick(false);
         // }
     // }, [wishlist]);
-    console.log("In ProductCard.jsx : Data");
-    console.log(data);
+    // console.log("In ProductCard.jsx : Data");
+    // console.log(data);
     // console.log(allProducts);
     }, []);
 
